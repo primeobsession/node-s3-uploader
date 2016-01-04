@@ -8,14 +8,17 @@ fi
 
 for FILE in `git diff-index --name-status --cached $against -- | cut -c3-` ; do
   # Check for describe.only(), describe.skip(), it.only(), it.skip()
-  if egrep -q '(describe|it)\.(only|skip)' "$FILE"
+  if egrep -q '(describe|it)\.(only|skip)' "$FILE" \
+    && [ "$FILE" != 'utils/git_hooks/pre-commit' ]
   then
     echo 'ERROR:' $FILE 'can not have skip() or only() tests'
     exit 1
   fi
 
   # Check for console.log()
-  if grep -q 'console.log' "$FILE" && [ "$FILE" != 'server.litcoffee' ]
+  if grep -q 'console.log' "$FILE" \
+    && [ "$FILE" != 'README.md' ] \
+    && [ "$FILE" != 'utils/git_hooks/pre-commit' ]
   then
     echo 'ERROR:' $FILE 'can not use console.log()'
     exit 1
@@ -23,4 +26,3 @@ for FILE in `git diff-index --name-status --cached $against -- | cut -c3-` ; do
 
 done
 exit
-
