@@ -47,7 +47,7 @@
     "uuid": "^2"
   },
   "dependencies": {
-    "@starefossen/rand-path": "^1.0.1",
+    "starefossen/rand-path": "^1.0.1",
     "async": "~1.4",
     "aws-sdk": "^2.2.9",
     "im-metadata": "~2.2",
