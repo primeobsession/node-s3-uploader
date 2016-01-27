@@ -38,7 +38,7 @@
   },
   "homepage": "https://github.com/Turistforeningen/node-s3-uploader",
   "devDependencies": {
-    "@starefossen/rand-path": "^1",
+    "starefossen/rand-path": "^1",
     "mocha": "~2",
     "jshint": "^2.8.0"
   },
